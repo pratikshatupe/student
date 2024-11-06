@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Book</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background: wheat;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin: 10px 0 5px;
+            color: #495057;
+        }
+
+        .card p {
+            margin: 5px 0;
+            color: #6c757d;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Employee Book 📚</h1>
+    <div class="container" id="employee-container"></div>
+
+    <footer>
+        <p>Employee Book App &copy; 2024</p>
+    </footer>
+
+    <script>
+        const employees = [
+            {
+                name: "John Doe",
+                position: "Software Engineer",
+                photo: "img/img1.jfif",
+                email: "john.doe@example.com",
+                phone: "123-456-7890",
+                emoji: "💻"
+            },
+            {
+                name: "Jane Smith",
+                position: "Project Manager",
+                photo: "img/img2.jfif",
+                email: "jane.smith@example.com",
+                phone: "987-654-3210",
+                emoji: "📊"
+            },
+            {
+                name: "Michael Johnson",
+                position: "UI/UX Designer",
+                photo: "img/img3.jfif",
+                email: "michael.johnson@example.com",
+                phone: "456-789-0123",
+                emoji: "🎨"
+            },
+            {
+                name: "Emily Davis",
+                position: "Data Scientist",
+                photo:"img/img4.jfif",
+                email: "emily.davis@example.com",
+                phone: "321-654-9870",
+                emoji: "📈"
+            },
+        ];
+
+        const employeeContainer = document.getElementById('employee-container');
+
+        employees.forEach(employee => {
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            card.innerHTML = `
+                <img src="${employee.photo}" alt="${employee.name}">
+                <h3>${employee.name} ${employee.emoji}</h3>
+                <p>${employee.position}</p>
+                <p>Email: ${employee.email}</p>
+                <p>Phone: ${employee.phone}</p>
+            `;
+
+            employeeContainer.appendChild(card);
+        });
+    </script>
+</body>
+</html>
